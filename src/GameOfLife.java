@@ -4,25 +4,42 @@ public class GameOfLife {
 	/*
 	 * Game Condition
 	 */
-	private static int width = 10;
-	private static int height = 10;
+	protected static int generation;
+	protected static int maxGeneration;
+	protected static Field field;
 
-	private static int maxGeneration = 100;
+	protected static void setInitialCondition() {
+		generation = 1;
+		maxGeneration = 100;
+
+		field  = new Field(10, 10);
+		field.randomSetup();
+
+		System.out.println("* Initial Condition *");
+		field.print();
+	}
+
+	protected static int nextGeneration() {
+		field = field.getNextGeneration();
+		generation++;
+
+		System.out.println(">> Generation " + generation);
+		field.print();
+
+		return generation;
+	}
+
+	protected static void play() {
+		while (generation < maxGeneration) {
+			nextGeneration();
+		}
+	}
 
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		Field field = new Field(width, height);
-		field.randomSetup();
-
-		for (int generation = 1; generation <= maxGeneration; generation++) {
-			Field nextField = field.getNextGeneration();
-
-			System.out.println("Generation " + generation + ":");
-			nextField.print();
-
-			field = nextField;
-		}
+		setInitialCondition();
+		play();
 	}
 }

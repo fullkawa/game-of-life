@@ -2,9 +2,11 @@
 public abstract class Cell {
 
 	private Position position;
+	private InterActions interactions;
 
 	public Cell(int x, int y) {
 		position = new Position(x, y);
+		interactions = this.getInterActions();
 	}
 
 	public Position getPosition() {
@@ -19,7 +21,16 @@ public abstract class Cell {
 		return position.getY();
 	}
 
-	public abstract boolean isPopulated();
+	protected abstract InterActions getInterActions();
 
-	public abstract Cell getNextGeneration(Neighbors neighbors);
+	public Cell getNextGeneration(Neighbors neighbors) {
+		Cell nextCell = this;
+
+		if (interactions != null) {
+			nextCell = interactions.getResult(this, neighbors);
+		}
+		return nextCell;
+	}
+
+	public abstract boolean isPopulated();
 }

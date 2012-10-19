@@ -6,28 +6,19 @@ public class PopulatedCell extends Cell {
 	}
 
 	@Override
-	public boolean isPopulated() {
-		return true;
+	protected InterActions getInterActions() {
+		InterActions actions = new InterActions();
+
+		actions.add(new SurvivesAction());
+		actions.add(new LonelinessAction());
+		actions.add(new OverpopulationAction());
+
+		return actions;
 	}
 
 	@Override
-	public Cell getNextGeneration(Neighbors neighbors) {
-		Cell nextCell = this;
-		int livCount = neighbors.getPopulatedCount();
-
-		// Rule: survives
-		if (livCount == 2 || livCount == 3) {
-			// nothing to do
-		}
-		// Rule: loneliness
-		if (livCount <= 1) {
-			nextCell = new EmptyCell(this.getX(), this.getY());
-		}
-		// Rule: overpopulation
-		if (livCount >= 4) {
-			nextCell = new EmptyCell(this.getX(), this.getY());
-		}
-		return nextCell;
+	public boolean isPopulated() {
+		return true;
 	}
 
 	@Override
