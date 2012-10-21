@@ -8,8 +8,7 @@ public class LonelinessAction extends InterAction {
 
 	@Override
 	public boolean match(Cell self, Neighbors neighbors) {
-		boolean result = (neighbors.getPopulatedCount() <= 1);
-		return result;
+		return (self.isPopulated() && neighbors.getPopulatedCount() <= 1);
 	}
 
 	@Override

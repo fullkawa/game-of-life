@@ -8,8 +8,7 @@ public class BirthAction extends InterAction {
 
 	@Override
 	public boolean match(Cell self, Neighbors neighbors) {
-		boolean result = (neighbors.getPopulatedCount() == 3);
-		return result;
+		return (self.isPopulated() == false && neighbors.getPopulatedCount() == 3);
 	}
 
 	@Override

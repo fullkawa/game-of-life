@@ -8,8 +8,7 @@ public class OverpopulationAction extends InterAction {
 
 	@Override
 	public boolean match(Cell self, Neighbors neighbors) {
-		boolean result = (neighbors.getPopulatedCount() >= 4);
-		return result;
+		return (self.isPopulated() && neighbors.getPopulatedCount() >= 4);
 	}
 
 	@Override

@@ -2,19 +2,17 @@ package jp.fullkawa.gameoflife.interaction;
 
 import jp.fullkawa.gameoflife.Neighbors;
 import jp.fullkawa.gameoflife.cell.Cell;
-import jp.fullkawa.gameoflife.cell.PopulatedCell;
 
 public class SurvivesAction extends InterAction {
 
 	@Override
 	public boolean match(Cell self, Neighbors neighbors) {
 		int count = neighbors.getPopulatedCount();
-		boolean result = (count == 2 || count == 3);
-		return result;
+		return (self.isPopulated() && (count == 2 || count == 3));
 	}
 	@Override
 	public Cell getResult(Cell self) {
-		return new PopulatedCell(self.getX(), self.getY());
+		return self;
 	}
 
 }

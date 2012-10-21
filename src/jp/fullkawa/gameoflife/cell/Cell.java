@@ -2,7 +2,11 @@ package jp.fullkawa.gameoflife.cell;
 
 import jp.fullkawa.gameoflife.Neighbors;
 import jp.fullkawa.gameoflife.Position;
+import jp.fullkawa.gameoflife.interaction.BirthAction;
 import jp.fullkawa.gameoflife.interaction.InterActions;
+import jp.fullkawa.gameoflife.interaction.LonelinessAction;
+import jp.fullkawa.gameoflife.interaction.OverpopulationAction;
+import jp.fullkawa.gameoflife.interaction.SurvivesAction;
 
 public abstract class Cell {
 
@@ -26,7 +30,16 @@ public abstract class Cell {
 		return position.getY();
 	}
 
-	protected abstract InterActions getInterActions();
+	protected InterActions getInterActions() {
+		InterActions actions = new InterActions();
+
+		actions.add(new BirthAction());
+		actions.add(new SurvivesAction());
+		actions.add(new LonelinessAction());
+		actions.add(new OverpopulationAction());
+
+		return actions;
+	}
 
 	public Cell getNextGeneration(Neighbors neighbors) {
 		Cell nextCell = this;
