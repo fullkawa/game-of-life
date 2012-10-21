@@ -1,4 +1,8 @@
+package jp.fullkawa.gameoflife;
 import static org.junit.Assert.*;
+import jp.fullkawa.gameoflife.cell.Cell;
+import jp.fullkawa.gameoflife.cell.EmptyCell;
+import jp.fullkawa.gameoflife.cell.PopulatedCell;
 
 import org.junit.Before;
 import org.junit.Test;

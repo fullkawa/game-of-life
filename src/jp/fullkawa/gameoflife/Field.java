@@ -1,4 +1,9 @@
+package jp.fullkawa.gameoflife;
 import java.util.HashMap;
+
+import jp.fullkawa.gameoflife.cell.Cell;
+import jp.fullkawa.gameoflife.cell.EmptyCell;
+import jp.fullkawa.gameoflife.cell.PopulatedCell;
 
 
 public class Field {

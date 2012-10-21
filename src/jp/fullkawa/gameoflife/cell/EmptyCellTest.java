@@ -1,22 +1,23 @@
+package jp.fullkawa.gameoflife.cell;
 import static org.junit.Assert.*;
+import jp.fullkawa.gameoflife.Neighbors;
 
 import org.junit.Test;
 
 
-public class PopulatedCellTest {
+public class EmptyCellTest {
 
 	@Test
-	public void testPopulatedCell() {
-		Cell cell = new PopulatedCell(1, 2);
-
-		assertEquals(1, cell.getX());
-		assertEquals(2, cell.getY());
+	public void testEmptyCell() {
+		Cell cell = new EmptyCell(2, 1);
+		assertEquals(2, cell.getX());
+		assertEquals(1, cell.getY());
 	}
 
 	@Test
 	public void testIsPopulated() {
-		Cell cell = new PopulatedCell(0, 0);
-		assertEquals(true, cell.isPopulated());
+		Cell cell = new EmptyCell(0, 0);
+		assertEquals(false, cell.isPopulated());
 	}
 
 	@Test
@@ -27,22 +28,7 @@ public class PopulatedCellTest {
 		}
 		assertEquals(0, neighbors.getPopulatedCount());
 
-		Cell nextCell = (new PopulatedCell(0, 0)).getNextGeneration(neighbors);
-		assertEquals(false, nextCell.isPopulated());
-	}
-
-	@Test
-	public void testGetNextGeneration_case1() {
-		Neighbors neighbors = new Neighbors();
-		for (int i=0; i<1; i++) {
-			neighbors.add(new PopulatedCell(0, 0));
-		}
-		for (int j=0; j<7; j++) {
-			neighbors.add(new EmptyCell(0, 0));
-		}
-		assertEquals(1, neighbors.getPopulatedCount());
-
-		Cell nextCell = (new PopulatedCell(0, 0)).getNextGeneration(neighbors);
+		Cell nextCell = (new EmptyCell(0, 0)).getNextGeneration(neighbors);
 		assertEquals(false, nextCell.isPopulated());
 	}
 
@@ -57,8 +43,8 @@ public class PopulatedCellTest {
 		}
 		assertEquals(2, neighbors.getPopulatedCount());
 
-		Cell nextCell = (new PopulatedCell(0, 0)).getNextGeneration(neighbors);
-		assertEquals(true, nextCell.isPopulated());
+		Cell nextCell = (new EmptyCell(0, 0)).getNextGeneration(neighbors);
+		assertEquals(false, nextCell.isPopulated());
 	}
 
 	@Test
@@ -72,7 +58,7 @@ public class PopulatedCellTest {
 		}
 		assertEquals(3, neighbors.getPopulatedCount());
 
-		Cell nextCell = (new PopulatedCell(0, 0)).getNextGeneration(neighbors);
+		Cell nextCell = (new EmptyCell(0, 0)).getNextGeneration(neighbors);
 		assertEquals(true, nextCell.isPopulated());
 	}
 
@@ -87,7 +73,7 @@ public class PopulatedCellTest {
 		}
 		assertEquals(4, neighbors.getPopulatedCount());
 
-		Cell nextCell = (new PopulatedCell(0, 0)).getNextGeneration(neighbors);
+		Cell nextCell = (new EmptyCell(0, 0)).getNextGeneration(neighbors);
 		assertEquals(false, nextCell.isPopulated());
 	}
 
@@ -99,14 +85,14 @@ public class PopulatedCellTest {
 		}
 		assertEquals(8, neighbors.getPopulatedCount());
 
-		Cell nextCell = (new PopulatedCell(0, 0)).getNextGeneration(neighbors);
+		Cell nextCell = (new EmptyCell(0, 0)).getNextGeneration(neighbors);
 		assertEquals(false, nextCell.isPopulated());
 	}
 
 	@Test
 	public void testToString() {
-		Cell cell = new PopulatedCell(0, 0);
-		assertEquals("■", cell.toString());
+		Cell cell = new EmptyCell(0, 0);
+		assertEquals("□", cell.toString());
 	}
 
 }

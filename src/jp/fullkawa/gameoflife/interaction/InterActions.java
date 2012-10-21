@@ -1,5 +1,9 @@
+package jp.fullkawa.gameoflife.interaction;
 
 import java.util.ArrayList;
+
+import jp.fullkawa.gameoflife.Neighbors;
+import jp.fullkawa.gameoflife.cell.Cell;
 
 public class InterActions extends ArrayList<InterAction> {
 

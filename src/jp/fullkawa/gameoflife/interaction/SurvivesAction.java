@@ -1,3 +1,8 @@
+package jp.fullkawa.gameoflife.interaction;
+
+import jp.fullkawa.gameoflife.Neighbors;
+import jp.fullkawa.gameoflife.cell.Cell;
+import jp.fullkawa.gameoflife.cell.PopulatedCell;
 
 public class SurvivesAction extends InterAction {
 

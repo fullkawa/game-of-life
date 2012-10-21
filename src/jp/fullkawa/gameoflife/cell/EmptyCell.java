@@ -1,3 +1,7 @@
+package jp.fullkawa.gameoflife.cell;
+
+import jp.fullkawa.gameoflife.interaction.BirthAction;
+import jp.fullkawa.gameoflife.interaction.InterActions;
 
 public class EmptyCell extends Cell {
 

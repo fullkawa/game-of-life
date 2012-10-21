@@ -1,3 +1,4 @@
+package jp.fullkawa.gameoflife;
 
 public class Position {
 

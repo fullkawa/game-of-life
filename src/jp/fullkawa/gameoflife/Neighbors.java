@@ -1,4 +1,7 @@
+package jp.fullkawa.gameoflife;
 import java.util.ArrayList;
+
+import jp.fullkawa.gameoflife.cell.Cell;
 
 
 public class Neighbors extends ArrayList<Cell> {

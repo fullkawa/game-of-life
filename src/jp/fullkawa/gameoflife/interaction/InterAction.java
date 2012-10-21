@@ -1,3 +1,7 @@
+package jp.fullkawa.gameoflife.interaction;
+
+import jp.fullkawa.gameoflife.Neighbors;
+import jp.fullkawa.gameoflife.cell.Cell;
 
 
 public abstract class InterAction {
